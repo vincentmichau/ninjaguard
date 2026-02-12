@@ -20,10 +20,9 @@
     "nodemailer": "^6.9.7",
     "helmet": "^7.1.0",
     "express-rate-limit": "^7.1.5",
-    "crypto": "^1.0.1",
-    "socket.io": "^4.6.1",
+    "socket.io": "^4.7.2",
     "axios": "^1.6.2",
-    "ical-generator": "^5.0.2"
+    "ical-generator": "^7.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
