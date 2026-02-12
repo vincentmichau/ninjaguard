@@ -57,7 +57,16 @@ build/
 coverage/
 .nyc_output/
 
-# Temporary files
+# Logs
+logs/
 *.log
+
+# Temporary files
 *.tmp
 .cache/
+
+# Uploads (backend)
+uploads/
+
+# Database backups
+*.sql.backup
