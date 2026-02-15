@@ -1,370 +1,385 @@
-# NightWatch - Système Complet de Gestion de Gardes de Nuit
+# 🌙 NightWatch - Plateforme de Gestion de Rondes de Nuit
 
-Plateforme complète de gestion et de reporting pour les services de garde de nuit avec applications web, mobile Android et backend API.
+<div align="center">
 
-## 🎯 Vue d'Ensemble
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Platform](https://img.shields.io/badge/platform-multi--platform-green.svg)
+![License](https://img.shields.io/badge/license-MIT-orange.svg)
 
-NightWatch est une solution tout-en-un pour la gestion des gardes de nuit, comprenant:
-- **Application Web** - Interface de gestion complète
-- **Application Mobile Android** - Application mobile React Native
-- **Backend API** - API RESTful avec Node.js et MySQL
-- **Base de Données** - MySQL avec chiffrement RGPD
+**Système professionnel de gestion de rondes de nuit - Multi-Applications &amp; Temps Réel**
 
-## 📦 Composants du Projet
+[Documentation](#documentation) • [Installation Rapide](#installation-rapide) • [Démonstration](#démonstration)
 
-### 1. Backend (Node.js + Express + MySQL)
-**Dossier**: `backend/`
+</div>
 
-Application serveur avec API RESTful complète.
+---
 
-**Fonctionnalités:**
-- 🔐 Authentification JWT avec gestion de sessions
-- 📝 CRUD complet pour les rapports
-- 🚨 Gestion des événements (incidents/observations)
-- 📷 Upload et gestion des photos
-- 📅 Planning avec export iCal
-- 💬 Chat en temps réel avec Socket.io
-- ⚙️ Admin complet (utilisateurs, sites, clients)
-- 📧 Envoi d'emails avec PDF
-- 🔒 Chiffrement AES-256 pour la conformité RGPD
+## ✨ Caractéristiques
 
-**Installation:**
-```bash
-cd backend
-npm install
-cp .env.example .env
-# Configurer .env avec vos paramètres
-npm start
+NightWatch est une plateforme **complète et interconnectée** qui permet la gestion des rondes de nuit sur **toutes les plateformes simultanément** :
+
+### 🌐 Multi-Plateforme
+- 🖥️ **Application Web React** - Interface moderne et responsive
+- 🌍 **Application Web PHP** - Interface alternative Bootstrap
+- 📱 **Application Mobile** - Android et iOS (React Native)
+
+### ⚡ Temps Réel
+- 💬 **Chat Équipe** - Messagerie instantanée synchronisée
+- 📊 **Statistiques en Direct** - Données mises à jour en temps réel
+- 🔔 **Notifications** - Alertes instantanées sur toutes les plateformes
+- 🔄 **Synchronisation** - Mises à jour automatiques entre applications
+
+### 🎯 Fonctionnalités Principales
+- ✅ Gestion complète des rapports de ronde
+- ✅ Suivi des incidents et observations
+- ✅ Validation des rapports
+- ✅ Gestion des sites et clients
+- ✅ Planification des rondes
+- ✅ Génération de PDF
+- ✅ Export iCal
+- ✅ Authentification sécurisée (JWT)
+- ✅ Interface d'administration complète
+
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Base de Données MySQL                    │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────────┐
+│              Backend API Node.js/Express                    │
+│              + Socket.io (Temps Réel)                       │
+└───────┬─────────────┬──────────────┬───────────────────────┘
+        │             │              │
+        ▼             ▼              ▼
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│ React Web    │ │ PHP Web      │ │ Mobile App   │
+└──────────────┘ └──────────────┘ └──────────────┘
 ```
 
-### 2. Frontend (React + Vite)
-**Dossier**: `frontend/`
+**Architecture détaillée**: Voir [README-UNIFIED.md](README-UNIFIED.md)
 
-Application web moderne avec interface utilisateur ergonomique.
+---
 
-**Fonctionnalités:**
-- 📊 Tableau de bord avec statistiques
-- 📝 Gestion complète des rapports
-- 📅 Visualisation du planning
-- 📜 Historique avec filtres avancés
-- 💬 Chat en temps réel
-- ⚙️ Interface admin
-- 🎨 Interface moderne avec Tailwind CSS
-
-**Installation:**
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-**Accès**: http://localhost:5173
-
-### 3. Application Mobile Android (React Native)
-**Dossier**: `NightWatchApp/`
-
-Application mobile complète pour les veilleurs sur le terrain.
-
-**Fonctionnalités:**
-- 📱 10 écrans fonctionnels
-- 📷 Caméra et galerie intégrées
-- 💬 Chat en temps réel
-- 📅 Planning avec iCal
-- 📄 Export PDF et email
-- 🎨 Interface optimisée mobile
-- 🌐 Fonctionne offline (partiellement)
-
-**Installation:**
-```bash
-cd NightWatchApp
-npm install --legacy-peer-deps
-# Configurer .env avec API_URL et SOCKET_URL
-npm start
-npm run android
-```
-
-**Construire APK:**
-```bash
-./build-apk.sh
-# Ou manuellement:
-cd android && ./gradlew assembleRelease
-```
-
-### 4. Documentation
-- **GUIDE_UTILISATION.md** - Guide utilisateur complet
-- **WEB-README.md** - Documentation spécifique application web
-- **NightWatchApp/README.md** - Documentation Android
-- **NightWatchApp/ANDROID_GUIDE.md** - Guide utilisateur Android
-- **screenshots/** - Captures d'écran de l'application Android
-
-### 5. Packages de Distribution
-- **NightWatch-Application.zip** - Application web complète (10.9 MB)
-- **Installation automatique**: `install.ps1` (Windows)
-
-## 🚀 Démarrage Rapide
+## 🚀 Installation Rapide
 
 ### Prérequis
 
-- Node.js 20+
+- Node.js 20.x+
+- PHP 8.0+ (optionnel)
 - MySQL 8.0+
-- npm ou yarn
-- Android Studio (pour l'app mobile)
+- Apache/Nginx (optionnel)
 
-### Installation Complète
+### Installation
 
-1. **Cloner le dépôt**
 ```bash
+# 1. Cloner le repository
 git clone https://github.com/vincentmichau/ninjaguard.git
 cd ninjaguard
-```
 
-2. **Configurer la base de données**
-```bash
-cd backend
-# Créer la base de données MySQL
-mysql -u root -p < database/schema.sql
-```
+# 2. Configurer la base de données
+mysql -u root -p
+CREATE DATABASE nightwatch CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+exit;
 
-3. **Démarrer le Backend**
-```bash
+mysql -u root -p nightwatch < backend/database/schema.sql
+
+# 3. Installer le backend
 cd backend
 npm install
 cp .env.example .env
-# Configurer .env
+# Modifier .env avec vos configurations
 npm start
 ```
 
-4. **Démarrer le Frontend**
+### Démarrer Toutes les Applications
+
 ```bash
-cd frontend
-npm install
-npm run dev
+# Script de démarrage automatique
+chmod +x start-all.sh
+./start-all.sh
+
+# Ou démarrer manuellement:
+# Backend (port 5000)
+cd backend &amp;&amp; npm start &amp;
+
+# React Web (port 5173)
+cd frontend &amp;&amp; npm run dev &amp;
+
+# PHP Web (port 8000) - optionnel
+cd php &amp;&amp; php -S localhost:8000 -t public &amp;
+
+# Mobile - optionnel
+cd NightWatchApp &amp;&amp; npm run android &amp;
 ```
 
-5. **Optionnel: Démarrer l'App Mobile**
-```bash
-cd NightWatchApp
-npm install --legacy-peer-deps
-# Configurer .env
-npm start
-npm run android
-```
+### Accéder aux Applications
 
-### Identifiants par Défaut
+- **React Web**: http://localhost:5173
+- **PHP Web**: http://localhost:8000
+- **Backend API**: http://localhost:5000
+- **API Documentation**: http://localhost:5000/api
+
+### Compte par défaut
 
 - **Email**: admin@nightwatch.fr
 - **Mot de passe**: Admin123!
 
-## 🎨 Stack Technologique
+⚠️ **IMPORTANT**: Changez ce mot de passe en production !
+
+---
+
+## 📖 Documentation
+
+### Documentation Principale
+- 📘 [Plateforme Unifiée](README-UNIFIED.md) - Architecture et interconnexion complète
+- 📗 [Guide Utilisateur](GUIDE_UTILISATION.md) - Guide complet d'utilisation
+
+### Documentation Backend
+- [Backend README](backend/README.md) - Configuration et API
+- [API Routes](backend/routes/) - Endpoints disponibles
+
+### Documentation Frontend
+- [React Web Guide](WEB-README.md) - Application web React
+- [PHP Web Guide](php/GUIDE_UTILISATION.md) - Application web PHP
+- [Mobile Guide](NightWatchApp/ANDROID_GUIDE.md) - Application mobile
+
+---
+
+## 🔄 Utilisation Multi-Plateforme
+
+### Scénario d'Utilisation Typique
+
+**08:00** - Agent sur site (Mobile Android)
+- Crée un rapport avec photos
+- Signale un incident
+
+**08:01** - Superviseur au bureau (React Web)
+- Reçoit notification instantanée
+- Valide le rapport
+
+**08:02** - Manager en déplacement (PHP Web)
+- Consulte le rapport validé
+- Communique via chat
+
+**Tout en temps réel** - Chat actif et synchronisé !
+
+### Synchronisation Temps Réel
+
+Toutes ces fonctionnalités sont synchronisées en temps réel:
+- ✅ Messages du chat
+- ✅ Rapports et événements
+- ✅ Statistiques
+- ✅ Planification
+- ✅ Notifications
+
+---
+
+## 🛠️ Technologies
 
 ### Backend
-- **Runtime**: Node.js 20.x
-- **Framework**: Express.js
-- **Base de données**: MySQL 8.0
-- **Authentification**: JWT (jsonwebtoken)
-- **Temps réel**: Socket.io
-- **Upload**: Multer
-- **Chiffrement**: crypto (AES-256)
-- **Email**: Nodemailer
-- **PDF**: PDFKit
+- **Node.js** - Runtime JavaScript
+- **Express** - Framework web
+- **MySQL** - Base de données
+- **Socket.io** - Temps réel WebSocket
+- **JWT** - Authentification
+- **Multer** - Upload de fichiers
+- **PDFKit** - Génération PDF
+- **Nodemailer** - Envoi d'emails
 
-### Frontend
-- **Framework**: React 18
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **HTTP**: Axios
-- **Routing**: React Router
-- **State**: React Context
-- **UI**: Composants personnalisés
+### Frontend React
+- **React 18** - Framework UI
+- **Vite** - Build tool
+- **Tailwind CSS** - Framework CSS
+- **Axios** - Client HTTP
+- **Socket.io Client** - Temps réel
 
-### Mobile Android
-- **Framework**: React Native 0.84.0
-- **Navigation**: React Navigation
-- **State**: React Context API
-- **HTTP**: Axios
-- **Temps réel**: Socket.io Client
-- **Stockage**: AsyncStorage
-- **Icônes**: react-native-vector-icons
-- **Caméra**: react-native-image-picker
-
-## 📱 Fonctionnalités par Rôle
-
-### Admin
-- ✅ Accès complet à toutes les fonctionnalités
-- ✅ Gestion des utilisateurs, sites, clients
-- ✅ Validation des rapports
-- ✅ Vue statistiques
-- ✅ Gestion des destinataires email
-
-### Superviseur
-- ✅ Vue et gestion des rapports
-- ✅ Validation des rapports
-- ✅ Planning et historique
-- ✅ Chat avec l'équipe
-
-### Veilleur
-- ✅ Création et édition de rapports
-- ✅ Upload de photos
-- ✅ Vue planning
-- ✅ Chat avec l'équipe
-
-## 🔐 Sécurité
-
-- 🔒 Chiffrement AES-256 des données sensibles (RGPD)
-- 🔐 Authentification JWT avec refresh token
-- 🛡️ Validation des entrées
-- 🚫 Rate limiting
-- 📋 Audit logs
-- ✅ Sanitization des inputs
-- 🔒 HTTPS support
-
-## 📚 Documentation Détaillée
-
-### Guides Utilisateurs
-- [Guide d'Utilisation Complet](GUIDE_UTILISATION.md) - Guide détaillé pour tous les utilisateurs
-- [Guide Android](NightWatchApp/ANDROID_GUIDE.md) - Guide spécifique application mobile
-- [Guide Web](WEB-README.md) - Guide application web
-
-### Documentation Technique
-- [Documentation Backend](backend/README.md)
-- [Documentation Frontend](frontend/README.md)
-- [Documentation Android](NightWatchApp/README.md)
-
-### Captures d'Écran
-Voir le dossier `screenshots/` pour les captures d'écran de l'application Android.
-
-## 🛠️ Dépannage
-
-### Backend
-```bash
-# Problèmes de connexion MySQL
-# Vérifier database/config.js
-
-# Redémarrer le serveur
-cd backend
-npm start
-```
-
-### Frontend
-```bash
-# Erreurs de build
-cd frontend
-rm -rf node_modules
-npm install
-
-# Problèmes de port
-# Vérifier que le backend tourne sur le port 3000
-```
+### Frontend PHP
+- **PHP 8** - Backend web
+- **Bootstrap 5** - Framework CSS
+- **Vanilla JS** - JavaScript natif
 
 ### Mobile
-```bash
-# Metro bundler ne démarre pas
-npx react-native start --reset-cache
+- **React Native** - Framework mobile
+- **Expo** - Outil de développement
+- **React Navigation** - Navigation
+- **Socket.io Client** - Temps réel
 
-# Erreurs de build
-cd android
-./gradlew clean
-cd ..
-npm install --legacy-peer-deps
-```
+---
 
-### Problèmes de Connexion API
-
-- **Émulateur Android**: Utiliser `10.0.2.2` pour localhost
-- **Appareil physique**: Utiliser l'IP locale du serveur
-- **Web**: `http://localhost:3000/api`
-
-## 📊 Architecture
+## 📁 Structure du Projet
 
 ```
-NightWatch/
-├── backend/              # API RESTful (Node.js + Express)
-│   ├── config/          # Configuration (base de données, chiffrement)
-│   ├── routes/          # Routes API
-│   ├── models/          # Modèles de données
-│   ├── socket/          # Socket.io (chat)
-│   └── database/        # Schéma MySQL
-├── frontend/            # Application Web (React + Vite)
+ninjaguard/
+├── backend/                 # Backend Node.js/Express (API unifiée)
+│   ├── config/             # Configuration
+│   ├── database/           # Schéma MySQL
+│   ├── middleware/         # Middleware (auth, etc.)
+│   ├── routes/             # Routes API
+│   ├── socket/             # Socket.io (temps réel)
+│   └── uploads/            # Fichiers uploadés
+├── frontend/               # Frontend Web React
 │   ├── src/
-│   │   ├── pages/      # Pages de l'application
-│   │   ├── components/ # Composants réutilisables
-│   │   └── contexts/   # Contextes React
-│   └── public/
-├── NightWatchApp/       # Application Mobile (React Native)
-│   ├── src/
-│   │   ├── screens/    # Écrans de l'application
-│   │   ├── components/ # Composants UI
-│   │   ├── services/   # Services API
-│   │   └── navigation/ # Navigation
-│   ├── android/        # Configuration Android
-│   └── ios/           # Configuration iOS (optionnel)
-├── docs/               # Documentation
-├── screenshots/        # Captures d'écran
-├── GUIDE_UTILISATION.md
-├── WEB-README.md
-└── README.md          # Ce fichier
+│   │   ├── components/     # Composants React
+│   │   ├── contexts/       # Contexts (auth, etc.)
+│   │   ├── pages/          # Pages de l'application
+│   │   └── services/       # Services API
+│   └── public/             # Assets statiques
+├── php/                    # Frontend Web PHP (Bootstrap)
+│   ├── api/                # API PHP (optionnel)
+│   ├── config/             # Configuration
+│   ├── database/           # Scripts base de données
+│   ├── public/             # Fichiers publics
+│   └── views/              # Vues PHP
+├── NightWatchApp/          # Application Mobile React Native
+│   ├── android/            # Configuration Android
+│   ├── ios/                # Configuration iOS
+│   └── src/                # Code source
+├── docs/                   # Documentation
+├── screenshots/            # Captures d'écran
+├── start-all.sh            # Script de démarrage
+├── stop-all.sh             # Script d'arrêt
+└── README.md               # Ce fichier
 ```
+
+---
+
+## 🔧 Configuration
+
+### Backend (.env)
+
+```env
+PORT=5000
+DB_HOST=localhost
+DB_NAME=nightwatch
+DB_USER=root
+DB_PASSWORD=
+JWT_SECRET=votre-cle-secrete
+FRONTEND_URL=http://localhost:5173
+```
+
+### Frontend React (.env)
+
+```env
+VITE_API_URL=http://localhost:5000/api
+VITE_SOCKET_URL=http://localhost:5000
+```
+
+### Frontend PHP (config.php)
+
+```php
+define('BACKEND_API_URL', 'http://localhost:5000/api');
+```
+
+### Mobile (.env)
+
+```env
+API_URL=http://10.0.2.2:5000/api
+SOCKET_URL=http://10.0.2.2:5000
+```
+
+---
 
 ## 🚀 Déploiement
 
 ### Production
 
-1. **Backend**
-   - Configurer `.env` pour la production
-   - Utiliser PM2 pour la gestion des processus
-   - Configurer HTTPS avec SSL
-   - Configurer MySQL pour la production
+Voir le guide de déploiement dans [README-UNIFIED.md](README-UNIFIED.md#-déploiement-en-production).
 
-2. **Frontend**
-   - Builder pour la production: `npm run build`
-   - Déployer sur un serveur web (Nginx, Apache)
-   - Configurer le proxy vers le backend
+### Docker
 
-3. **Mobile**
-   - Construire l'APK de release
-   - Signer l'APK avec votre keystore
-   - Publier sur Play Store
+```bash
+# Build
+docker-compose build
 
-### Installation Automatique (Windows)
+# Run
+docker-compose up -d
 
-Le script `install.ps1` automatise l'installation complète sur Windows:
-- Installation des dépendances
-- Configuration de la base de données
-- Démarrage des services
-- Création de raccourcis
-
-## 📄 Licence
-
-Copyright © 2024 NightWatch. Tous droits réservés.
-
-## 🤝 Contribution
-
-Pour contribuer au projet:
-1. Fork le dépôt
-2. Créer une branche pour votre fonctionnalité
-3. Commit vos changements
-4. Push vers la branche
-5. Ouvrir une Pull Request
-
-## 📞 Support
-
-Pour le support technique:
-- Consultez la documentation
-- Vérifiez le guide de dépannage
-- Ouvrez une issue sur GitHub
-
-## 🎯 Points Forts
-
-✅ Solution complète (Web + Mobile + Backend)
-✅ Interface moderne et intuitive
-✅ Conformité RGPD avec chiffrement
-✅ Fonctionnalités temps réel (chat)
-✅ Export PDF et email
-✅ Planning avec iCal
-✅ Gestion des photos
-✅ Documentation complète
-✅ Prêt pour la production
+# Stop
+docker-compose down
+```
 
 ---
 
-**Note**: Ce projet est une solution complète et professionnelle pour la gestion des gardes de nuit. Tous les composants sont intégrés et prêts à être déployés en production.
+## 🤝 Contribution
+
+Les contributions sont les bienvenues !
+
+1. Fork le projet
+2. Créez une branche (`git checkout -b feature/AmazingFeature`)
+3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
+
+---
+
+## 📝 Changelog
+
+### Version 1.0.0 (2024)
+- ✅ Backend Node.js/Express complet
+- ✅ Frontend Web React complet
+- ✅ Frontend Web PHP complet
+- ✅ Application Mobile React Native complète
+- ✅ Intégration temps réel Socket.io
+- ✅ Synchronisation multi-plateforme
+- ✅ Documentation complète
+
+---
+
+## ❓ FAQ
+
+### Q: Puis-je utiliser seulement une application ?
+**R**: Oui ! Chaque application fonctionne indépendamment. Utilisez React Web, PHP Web, ou Mobile selon vos besoins.
+
+### Q: Les données sont-elles synchronisées ?
+**R**: Oui ! Toutes les applications partagent la même base de données et sont synchronisées en temps réel via Socket.io.
+
+### Q: Puis-je utiliser les applications simultanément ?
+**R**: Absolument ! Vous pouvez utiliser React Web, PHP Web et Mobile en même temps. Tout est synchronisé.
+
+### Q: L'application mobile nécessite-t-elle internet ?
+**R**: Oui, pour le moment l'application nécessite une connexion internet pour se synchroniser avec le backend. Un mode hors ligne est en développement.
+
+---
+
+## 🐛 Signalement de Bugs
+
+Pour signaler un bug ou demander une fonctionnalité:
+
+- GitHub Issues: https://github.com/vincentmichau/ninjaguard/issues
+- Email: support@nightwatch.fr
+
+---
+
+## 📄 Licence
+
+Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour les détails.
+
+---
+
+## 👥 Équipe
+
+- **Développeur Principal**: NightWatch Team
+- **Contributeurs**: Voir [CONTRIBUTORS.md](CONTRIBUTORS.md)
+
+---
+
+## 🙏 Remerciements
+
+- Node.js et l'équipe Express
+- React et l'équipe React Native
+- La communauté Open Source
+
+---
+
+<div align="center">
+
+**Créé avec ❤️ par NightWatch Team**
+
+[⬆ Retour en haut](#-nightwatch---plateforme-de-gestion-de-rondes-de-nuit)
+
+</div>
