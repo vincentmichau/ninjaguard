@@ -1,0 +1,67 @@
+&lt;?php
+/**
+ * NightWatch - Configuration principale (exemple)
+ * Copiez ce fichier en config.php et modifiez les valeurs
+ */
+
+// Configuration de l'environnement
+define('ENVIRONMENT', 'development'); // 'development' ou 'production'
+define('BASE_URL', 'http://localhost:8000');
+define('API_URL', BASE_URL . '/api');
+
+// Configuration de la base de données
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'nightwatch_php');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_CHARSET', 'utf8mb4');
+
+// Configuration JWT
+// IMPORTANT: Changez cette valeur en production !
+define('JWT_SECRET', 'changez-cette-cle-secrete-en-production');
+define('JWT_ALGORITHM', 'HS256');
+define('JWT_EXPIRATION', 86400); // 24 heures en secondes
+
+// Configuration des fichiers uploadés
+define('UPLOAD_DIR', __DIR__ . '/../public/uploads');
+define('MAX_FILE_SIZE', 5242880); // 5 Mo en octets
+define('ALLOWED_IMAGE_TYPES', ['image/jpeg', 'image/png', 'image/jpg', 'image/webp']);
+
+// Configuration email
+define('SMTP_HOST', 'smtp.gmail.com');
+define('SMTP_PORT', 587);
+define('SMTP_USER', 'votre-email@gmail.com');
+define('SMTP_PASS', 'votre-mot-de-passe');
+define('SMTP_FROM', 'noreply@nightwatch.fr');
+define('SMTP_FROM_NAME', 'NightWatch');
+
+// Configuration des rôles utilisateurs
+define('ROLE_ADMIN', 'admin');
+define('ROLE_SUPERVISOR', 'supervisor');
+define('ROLE_WATCHER', 'watcher');
+
+// Configuration pagination
+define('ITEMS_PER_PAGE', 20);
+
+// Zone horaire
+date_default_timezone_set('Europe/Paris');
+
+// Gestion des erreurs
+if (ENVIRONMENT === 'development') {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+}
+
+// Configuration CORS
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+
+// Gérer les requêtes OPTIONS preflight
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}

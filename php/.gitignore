@@ -1,0 +1,35 @@
+# Logs
+logs/*
+*.log
+
+# Configuration avec données sensibles
+config/config.php
+
+# Uploads
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Vendor (si on utilise Composer)
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+
+# Environment
+.env
+.env.local
+
+# Cache
+cache/
